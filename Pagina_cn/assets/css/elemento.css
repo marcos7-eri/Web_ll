@@ -1,0 +1,60 @@
+.elemento-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+.elemento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    max-width: 300px;
+}
+
+.elemento__titulo {
+    color: rgb(26, 92, 215);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.elemento__figura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.elemento__figura--imagen {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 0.5rem;
+}
+
+.elemento__figura--texto {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.elemento__boton {
+    font-family: 'Montserrat', sans-serif;
+    color: #e3e3e3;
+    border: 2px solid #125eb5;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+.elemento__boton:hover {
+    background: #0d56c4;
+    color: white;
+}

@@ -1,0 +1,42 @@
+.mensaje {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.mensaje__lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0;
+    list-style: none;
+}
+
+.mensaje__item {
+    max-width: 300px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2.5rem 1rem 2rem 1rem;
+    background-position: top left;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+.mensaje__item__titulo {
+    color: cadetblue;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.mensaje__item__texto {
+    line-height: normal;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+}

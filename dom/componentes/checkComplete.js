@@ -7,8 +7,15 @@ const checkComplete = () => {
 
 const color = (evento) => {
     const element = evento.target;
+
+    // Reproducir el sonido al completar
+    const audio = new Audio('./assets/check.mp3'); // Ruta del archivo de sonido
+    audio.play();
+
+    // Cambiar los estilos del icono
     element.classList.add('fas');
     element.classList.add('completeIcon');
     element.classList.remove('far');
 };
+
 export default checkComplete;

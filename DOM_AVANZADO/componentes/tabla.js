@@ -1,6 +1,6 @@
 import cards from "./cards.js";
 const tabla = (() => {
-    const cuerpoTabla = document.getElementById('taskTable').getElementsByTagName('tbody')[0]; //recupero el cuerpo de la tabla
+    const cuerpoTabla = document.getElementById('taskTable').getElementsByTagName('tbody')[0];
     //recupero el cuerpo de la tabla    
 
     const addTask = (task) => {
@@ -55,4 +55,4 @@ return {addTask, getTasks};
 
 })();
 
-export default tabla; //exporto la funcion tabla
+export default tabla;

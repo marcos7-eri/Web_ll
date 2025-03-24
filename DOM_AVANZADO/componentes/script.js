@@ -8,4 +8,3 @@ import cards from "./cards.js";
         cards.update();
     });
 })();
-//actualizado

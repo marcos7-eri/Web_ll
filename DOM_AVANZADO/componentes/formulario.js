@@ -24,16 +24,15 @@ const reset =()=>{
     inputPrioridad.value=''; 
 };
 // devuelvo los datos del formulario
-const setDatos =(callback)=>{ //callback es una funcion que se ejecuta dentro de otra funcion
-    form.addEventListener('submit',(evento)=>{ //evento es un objeto que contiene informacion sobre el evento que se esta produciendo
-        evento.preventDefault(); //previene la accion por defecto del evento
-        callback(datosForm()); //ejecuto la funcion callback y le paso los datos del formulario
+const setDatos =(callback)=>{
+    form.addEventListener('submit',(evento)=>{
+        evento.preventDefault();
         reset();
     });
 };
 
-return {setDatos}; //devuelvo la funcion setDatos
+return {setDatos}; 
 
 }) ();
 
-export default Form; //exporto la funcion Form
+export default Form;

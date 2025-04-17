@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prevenir accion por defecto</title>
+</head>
+<body>
+    <div id="enlace" href = "https://github.com/sebastiansoto1407/WEB2">Enlace</div>
+    <script>
+        const enlace=document.getElementById('enlace')
+        enlace.addEventListener('click', (evento)=>{
+            alert('enlace bloqueado')
+        })
+    </script>
+</body>
+</html>

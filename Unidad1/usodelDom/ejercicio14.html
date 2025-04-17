@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop programation</title>
+</head>
+<body>
+    <div id="elementoPadre">
+        <div id="elementoHijo"> elemento </div>
+    </div>
+    <script>
+        const elementoHijo = document.getElementById('elementoHijo')
+        elementoHijo.addEventListener('click', (evento) =>{
+            alert('evento Hijo')
+        })
+        const elementoPadre = document.getElementById('elementoPadre')
+        elementoPadre.addEventListener('click', (evento) =>{
+            alert('evento padre xd')
+        })
+    </script>
+</body>
+</html>

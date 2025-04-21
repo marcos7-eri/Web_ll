@@ -7,7 +7,7 @@ formulario.addEventListener("submit", (evento)=>{
     const descripcion = document.querySelector("[data-descripcion]").value;
     productService.crearProducto(nombre, precio, descripcion)
         .then((respuesta) => {
-            window.location.href = "/Async-promesas-js/screens/registro_completado.html";
+            window.location.href = "./registro_completado.html";
         })
         .catch((error) => console.log(error));
 });

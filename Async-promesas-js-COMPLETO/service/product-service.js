@@ -1,5 +1,3 @@
-// service/product-service.js
-
 const listaProductos = () => fetch("http://localhost:3000/producto").then((respuesta) => respuesta.json());
 
 const crearProducto = (nombre, precio, descripcion) => {
@@ -12,31 +10,6 @@ const crearProducto = (nombre, precio, descripcion) => {
     });
 };
 
-const eliminarProducto = (id) => {
-    console.log("elii", id);
-    return fetch(`http://localhost:3000/producto/${id}`, {
-        method: "DELETE"
-    });
-};
-
-const producto = (id) => {
-    return fetch(`http://localhost:3000/producto/${id}`).then((respuesta) => respuesta.json());
-};
-
-const actualizarProducto = (nombre, precio, descripcion, id) => {
-    return fetch(`http://localhost:3000/producto/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ nombre, precio, descripcion })
-    }).then((respuesta) => console.log(respuesta)).catch((err) => console.log(err));
-};
-
 export const productService = {
-    listaProductos,
-    crearProducto,
-    eliminarProducto,
-    producto,
-    actualizarProducto
+    crearProducto
 };

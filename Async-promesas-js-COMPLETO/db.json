@@ -1,0 +1,22 @@
+{
+  "perfil": [
+    {
+      "nombre": "jjj",
+      "email": "dedwdw",
+      "id": "6dd9c7a3-cdc0-4d83-9e2d-57989841b0cf"
+    },
+    {
+      "id": "62005e48-a2f6-43c9-a41a-233b905f2932",
+      "nombre": "afafaf",
+      "email": "fsfsfsf"
+    }
+  ],
+  "producto": [
+    {
+      "id": "af800cf6-2890-4592-bdfb-7a8854ec18f7",
+      "nombre": "GSGSG",
+      "precio": "41",
+      "descripcion": "GSGSG"
+    }
+  ]
+}

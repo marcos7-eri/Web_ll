@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRUD Productos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Gestión de Productos</h1>
+
+  <form data-form>
+    <input type="text" placeholder="Nombre" data-nombre required>
+    <input type="text" placeholder="Descripción" data-descripcion required>
+    <input type="number" placeholder="Precio" data-precio step="0.01" required>
+    <button type="submit">Agregar Producto</button>
+  </form>
+
+  <section data-productos></section>
+
+  <script type="module" src="controllers/main-controller.js"></script>
+</body>
+</html>

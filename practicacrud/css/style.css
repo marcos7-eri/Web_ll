@@ -1,0 +1,23 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+    text-align: center;
+    background: #f0f0f0;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input, button {
+    margin: 5px;
+    padding: 10px;
+  }
+  
+  .producto {
+    background: #fff;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    width: 300px;
+  }

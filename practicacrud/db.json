@@ -1,0 +1,22 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Ejemplo",
+      "descripcion": "Descripción de ejemplo",
+      "precio": 15.5
+    },
+    {
+      "id": "422f",
+      "nombre": "soda",
+      "descripcion": "bebida",
+      "precio": 13
+    },
+    {
+      "id": "8564",
+      "nombre": "monster",
+      "descripcion": "bebidaa",
+      "precio": 12
+    }
+  ]
+}

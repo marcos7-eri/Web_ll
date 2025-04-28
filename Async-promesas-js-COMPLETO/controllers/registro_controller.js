@@ -6,6 +6,6 @@ formulario.addEventListener("submit",(evento)=>{
     const email = document.querySelector("[data-email]").value;
 
     clientService.crearCliente(nombre,email).then((respuesta)=>{
-        window.location.href="/Async-promesas-js/screens/registro_completado.html"
+        window.location.href="Async-promesas-js-COMPLETO\screens\registro_completado.html"
     }).catch(error => console.log(error))
 });

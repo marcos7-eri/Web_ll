@@ -43,7 +43,7 @@ const crear_nueva_fila=(nombre,email,id)=>{// recepciono datos
 const table = document.querySelector("[data-table]");
 clientService.listaclientes()
     .then((data)=>{
-    data.forEach((perfil)=>{ 
+     data.forEach((perfil)=>{ 
         const nuevafila=crear_nueva_fila(perfil.nombre,perfil.email,perfil.id) // para eliminar y actualizar agregamos id
         table.appendChild(nuevafila)
     });
@@ -62,5 +62,7 @@ clientService
                 table.appendChild(nuevaLinea)
                 
                 });
+        
+
     console.log(data);// verifico datos 
 }).catch((error)=>alert("ocurrio un error"));

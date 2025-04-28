@@ -15,16 +15,15 @@
     />
     <link rel="stylesheet" href="../assets/css/base/base.css" />
     <link rel="stylesheet" href="../assets/css/componentes/header.css" />
-    <link rel="stylesheet" href="../assets/css/componentes/card.css" />
-    <link rel="stylesheet" href="../assets/css/register_client.css" />
-    <link rel="stylesheet" href="../assets/css/componentes/inputs.css" />
+    <link rel="stylesheet" href="../assets/css/lista_cliente.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/table.css" />
     <link rel="stylesheet" href="../assets/css/componentes/button.css" />
-    <link rel="stylesheet" href="../assets/css/register_product.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/modal.css" />
   </head>
   <body>
     <header class="header container">
       <img
-        src="../assets/img/doguitoadm.svg"
+        src="./assets/img/doguitoadm.svg"
         alt="Logo Doguito"
         class="header_logo"
       />
@@ -42,7 +41,7 @@
     <main class="container flex flex--center flex--column">
       <section class="card cadastro">
         <h1 class="card__title">Registrar un producto</h1>
-        <form class="flex flex--column" data-form>
+        <form action="#" class="flex flex--column">
           <div class="input-container">
             <input
               name="nombre"
@@ -50,7 +49,6 @@
               class="input"
               type="text"
               placeholder="nombre"
-              data-nombre
             />
             <label class="input-label" for="nombre">nombre</label>
             <span class="input-menssage-error">Error</span>
@@ -62,28 +60,31 @@
               class="input"
               type="text"
               placeholder="Precio"
-              data-precio
             />
             <label class="input-label" for="precio">Precio</label>
             <span class="input-menssage-error">Error</span>
           </div>
-          <div class="textarea-container register_description-container">
+          <div
+            class="
+              textarea-container textarea-container--invalido
+              register_description-container
+            "
+          >
             <textarea
               class="textarea register_description"
               name="description"
               id="description"
               placeholder="Descripcion"
-              data-descripcion
             ></textarea>
             <label class="textarea-label" for="description">Descripcion</label>
             <span class="textarea-menssage-error">Error</span>
           </div>
-          <button type="submit" class="button">Registrar producto</button>
+          <a href="./registro_completado.html" class="button"
+            >Registrar producto</a
+          >
         </form>
-        
       </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="module" src="../controllers/registro_producto_controller.js"></script>
   </body>
 </html>
+

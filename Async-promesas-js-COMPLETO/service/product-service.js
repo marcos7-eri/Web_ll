@@ -1,25 +1,42 @@
-const url = "http://localhost:3000/productos";
-
-const fetchJSON = async (endpoint = "", options = {}) => {
-  const res = await fetch(`${url}${endpoint}`, options);
-  if (!res.ok) throw new Error("Error en la operación");
-  return res.json?.() ?? null;
-};
+const API_URL = 'http://localhost/api1/productos.php';
 
 export const productService = {
-  listaProductos: () => fetchJSON(),
+  listaProductos: () =>
+    fetch(API_URL)
+      .then(res => {
+        if (!res.ok) throw new Error('Error al obtener productos');
+        return res.json();
+      }),
+
   crearProducto: (nombre, precio, descripcion) =>
-    fetchJSON("", {
+    fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, precio: parseFloat(precio), descripcion }),
+      body: JSON.stringify({ 
+        nombre, 
+        precio, 
+        descripcion
+      })
+    }).then(res => {
+      if (!res.ok) throw new Error('Error al crear producto');
+      return res.json();
     }),
+
   eliminarProducto: (id) =>
-    fetchJSON(`/${id}`, { method: "DELETE" }),
+    fetch(`${API_URL}?id=${id}`, {
+      method: "DELETE"
+    }).then(res => {
+      if (!res.ok) throw new Error('Error al eliminar producto');
+      return res.json();
+    }),
+
   editarProducto: (id, nombre, precio, descripcion) =>
-    fetchJSON(`/${id}`, {
+    fetch(API_URL, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, precio: parseFloat(precio), descripcion }),
+      body: JSON.stringify({ id, nombre, precio, descripcion })
+    }).then(res => {
+      if (!res.ok) throw new Error('Error al editar producto');
+      return res.json();
     }),
 };

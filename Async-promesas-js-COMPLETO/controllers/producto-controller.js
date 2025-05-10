@@ -1,85 +1,59 @@
 import { productService } from "../service/product-service.js";
 
-const form = document.querySelector("[data-formulario]");
-const contenedor = document.querySelector("[data-productos]");
-const inputNombre = document.querySelector("[data-nombre]");
-const inputPrecio = document.querySelector("[data-precio]");
-const inputDescripcion = document.querySelector("[data-descripcion]");
-const btnSubmit = form.querySelector(".button");
-
-const crearTarjeta = (nombre, precio, descripcion, id) => {
-  const tarjeta = document.createElement("div");
-  tarjeta.className = "card-producto";
-
-  tarjeta.innerHTML = `
-    <h3>${nombre}</h3>
-    <p><strong>Precio:</strong> $${parseFloat(precio).toFixed(2)}</p>
-    <p>${descripcion}</p>
-    <button class="delete-button" data-id="${id}">Eliminar</button>
-    <button class="edit-button" data-id="${id}">Editar</button>
+const crearNuevaFilaProducto = (nombre, precio, descripcion, id) => {
+  const fila = document.createElement('tr');
+  
+  const contenido = `
+      <td class="td" data-td>${nombre}</td>
+      <td>${parseFloat(precio).toFixed(2)}</td> <!-- Cambio aquí -->
+      <td>${descripcion}</td>
+      <td>
+          <ul class="table__button-control">
+              <li>
+                  <a href="../screens/editar_producto.html?id=${id}" 
+                     class="simple-button simple-button--edit">
+                     Editar
+                  </a>
+              </li>
+              <li>
+                  <button class="simple-button simple-button--delete" 
+                          type="button" id="${id}">
+                          Eliminar
+                  </button>
+              </li>
+          </ul>
+      </td>
   `;
-
-  tarjeta.querySelector(".delete-button").addEventListener("click", async () => {
-    try {
-      await productService.eliminarProducto(id);
-      tarjeta.remove();
-    } catch (error) {
-      alert("Error al eliminar producto");
-    }
-  });
-
-  tarjeta.querySelector(".edit-button").addEventListener("click", () => {
-    inputNombre.value = nombre;
-    inputPrecio.value = precio;
-    inputDescripcion.value = descripcion;
-    form.setAttribute("data-edit-id", id);
-    btnSubmit.textContent = "Actualizar producto";
-  });
-
-  return tarjeta;
-};
-
-const cargarProductos = async () => {
-  try {
-    const productos = await productService.listaProductos();
-    productos.forEach(({ nombre, precio, descripcion, id }) => {
-      const tarjeta = crearTarjeta(nombre, precio, descripcion, id);
-      contenedor.appendChild(tarjeta);
+    
+    fila.innerHTML = contenido;
+    
+    const btn = fila.querySelector("button");
+    btn.addEventListener("click", () => {
+        const id = btn.id;
+        productService.eliminarProducto(id)
+            .then(() => {
+                fila.remove();
+                alert("Producto eliminado con éxito");
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Ocurrió un error al eliminar el producto");
+            });
     });
-  } catch (error) {
-    alert("Error al cargar productos");
-  }
+
+    return fila;
 };
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+const tabla = document.querySelector("[data-tabla-productos]");
 
-  const nombre = inputNombre.value.trim();
-  const precio = inputPrecio.value.trim();
-  const descripcion = inputDescripcion.value.trim();
-  const idEditar = form.getAttribute("data-edit-id");
-
-  if (!nombre || !precio || !descripcion) {
-    alert("Completa todos los campos");
-    return;
-  }
-
-  try {
-    if (idEditar) {
-      await productService.editarProducto(idEditar, nombre, precio, descripcion);
-      form.removeAttribute("data-edit-id");
-      btnSubmit.textContent = "Registrar producto";
-      form.reset();
-      location.reload(); 
-    } else {
-      await productService.crearProducto(nombre, precio, descripcion);
-      form.reset();
-      window.location.href = "./registro_completado.html";
-    }
-  } catch (error) {
-    alert(idEditar ? "Error al actualizar" : "Error al registrar");
-  }
-});
-
-cargarProductos();
-//carga productos
+productService.listaProductos()
+    .then((data) => {
+        data.forEach(({nombre, precio, descripcion, id}) => {
+            const nuevaFila = crearNuevaFilaProducto(nombre, precio, descripcion, id);
+            tabla.appendChild(nuevaFila);
+        });
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("Ocurrió un error al cargar los productos");
+    });

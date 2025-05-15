@@ -53,7 +53,3 @@ productService.listaProductos()
             tabla.appendChild(nuevaFila);
         });
     })
-    .catch((error) => {
-        console.error(error);
-        alert("Ocurrió un error al cargar los productos");
-    });

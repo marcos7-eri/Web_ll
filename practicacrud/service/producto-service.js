@@ -1,4 +1,3 @@
-// service/producto-service.js
 const url = "http://localhost:3000/productos";
 
 const obtenerTodos = async () => {
